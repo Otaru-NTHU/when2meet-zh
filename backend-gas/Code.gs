@@ -43,7 +43,7 @@ function json_(obj) {
 
 // ---------- 初始化（第一次手動執行一次） ----------
 function setup() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = ss_();
   ensureSheet_(ss, EVENT_SHEET, EVENT_COLS);
   ensureSheet_(ss, PART_SHEET, PART_COLS);
   ensureSheet_(ss, CHANGE_SHEET, CHANGE_COLS);
@@ -59,8 +59,15 @@ function ensureSheet_(ss, name, cols) {
 }
 
 // ---------- 試算表存取 ----------
+/** 取得資料試算表：優先用指令碼屬性 SPREADSHEET_ID，否則用綁定的試算表 */
+function ss_() {
+  const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID');
+  const ss = id ? SpreadsheetApp.openById(id) : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) throw new Error('找不到資料試算表：請在「專案設定 → 指令碼屬性」新增 SPREADSHEET_ID（試算表網址 /d/ 後面那串）');
+  return ss;
+}
 function sheet_(name) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = ss_();
   let sh = ss.getSheetByName(name);
   if (!sh) { const cols = name === EVENT_SHEET ? EVENT_COLS : name === PART_SHEET ? PART_COLS : CHANGE_COLS; ensureSheet_(ss, name, cols); sh = ss.getSheetByName(name); }
   return sh;

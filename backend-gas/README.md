@@ -3,7 +3,7 @@
 完整部署步驟見根目錄 `README.md` 第 1 節。重點：
 
 1. 新試算表 → 擴充功能 → Apps Script → 貼上 `Code.gs` 與 `appsscript.json`
-2. 指令碼屬性加 `FRONTEND_URL`
+2. 指令碼屬性加 `SPREADSHEET_ID` 與 `FRONTEND_URL`
 3. 執行一次 `setup()`（建工作表 + 每日摘要觸發器）
 4. 部署為網頁應用程式：執行身分「我」、存取權「所有人」
 5. 把 `/exec` 網址填進前端 `docs/config.js` 的 `API_BASE`

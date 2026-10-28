@@ -24,7 +24,9 @@ when2meet-zh/
 
 ## 0. 先試玩（不需要任何後端）
 
-`docs/config.js` 預設 `BACKEND: 'local'`（示範模式），資料只存在你的瀏覽器裡。
+正式站：<https://otaru-nthu.github.io/when2meet-zh/>
+
+把 `docs/config.js` 改成 `BACKEND: 'local'`（示範模式）就不需要任何後端，資料只存在你的瀏覽器裡。
 直接把 `docs/` 放到任何靜態主機、或在本機跑 `python3 -m http.server` 打開 `docs/index.html` 就能看介面。
 
 ---
@@ -38,8 +40,9 @@ when2meet-zh/
 3. 把預設的 `Code.gs` 內容全部換成本 repo `backend-gas/Code.gs` 的內容。
 4. 左側齒輪 **專案設定** → 勾選「在編輯器中顯示 appsscript.json 資訊清單檔案」，
    回到編輯器把 `appsscript.json` 換成本 repo `backend-gas/appsscript.json`（設定時區為 Asia/Taipei、允許匿名存取）。
-5. 同一頁「專案設定」最下方 **指令碼屬性 → 新增屬性**：
-   `FRONTEND_URL` = 你的前端網址（例如 `https://otaru-nthu.github.io/when2meet-zh/`），信件裡的連結會用到。
+5. 同一頁「專案設定」最下方 **指令碼屬性 → 新增屬性**，加兩個：
+   - `SPREADSHEET_ID` = 試算表網址 `/d/` 後面那串 ID（指定資料要存在哪份試算表）
+   - `FRONTEND_URL` = 你的前端網址（例如 `https://otaru-nthu.github.io/when2meet-zh/`），信件裡的連結會用到。
 6. 回到編輯器，上方函式下拉選 `setup`，按 **執行**。第一次會要求授權（存取試算表、寄信、建立觸發器），全部允許。
    這一步會自動建立 `events / participants / changes` 三個工作表與每日摘要的時間觸發器。
 7. 右上 **部署 → 新增部署作業** → 類型選 **網頁應用程式**：

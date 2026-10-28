@@ -6,12 +6,12 @@ window.APP_CONFIG = {
   // 後端模式：
   //   'local'  → 示範模式，資料只存在這台瀏覽器的 localStorage（不需要任何後端，適合先試玩）
   //   'remote' → 連到 API_BASE 指定的後端（Google Apps Script 或 FastAPI）
-  BACKEND: 'local',
+  BACKEND: 'remote',
 
   // 後端網址：
   //   GAS：     'https://script.google.com/macros/s/XXXXXXXX/exec'
   //   FastAPI： 由 FastAPI 直接服務前端時填 '/api'；前端放 GitHub Pages、後端另架時填完整網址，例如 'https://meet.example.com/api'
-  API_BASE: '',
+  API_BASE: 'https://script.google.com/macros/s/AKfycbx2bbVvsF9h9iYAzDidctn1ukDh-JMmTuHc7-0HdAXU_PKkBR4ZI3FQqml-tnM9Z7DL/exec',
 
   // GitHub repo 網址（頁尾連結，選填）
   REPO_URL: 'https://github.com/Otaru-NTHU/when2meet-zh',

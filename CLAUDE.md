@@ -25,7 +25,7 @@
 - 示範模式：`cd docs && python3 -m http.server 8077` → 開 `http://localhost:8077/#/new`
 - FastAPI：把 `config.js` 暫改 `BACKEND:'remote', API_BASE:'/api'`，`uvicorn main:app --port 8090`，開 `http://localhost:8090/`
 - Playwright 可用：建立 → 加入 → 拖曳 `.cell:not(.blocked)` → 儲存 → `/admin` 檢查熱力圖；`page.on('dialog')` 要 accept。
-- 測完記得把 `config.js` 改回 `local`（repo 預設值）。
+- 測完記得把 `config.js` 改回正式設定（`main` 分支上是 Otaru 的正式 GAS 網址）。
 
 ## 風格
 - 2 空格縮排；前端用 `el()` 建 DOM，不用 innerHTML 拼字串（除非靜態文字）。
